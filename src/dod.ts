@@ -1,5 +1,5 @@
 // Import
-import * as Expert from "./expert/character";
+import * as Expert from "./expert/main";
 
 // Export
 export { Expert };

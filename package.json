@@ -9,24 +9,24 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ava",
+    "test": "mocha",
     "build": "gulp compile",
     "package": "gulp default",
     "start": "gulp"
   },
   "keywords": [
-    "ts",
-    "typescript"
+    "role-playing",
+    "dod"
   ],
   "author": "Olle Jacobsen",
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.16.0",
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-typescript": "^3.0.2",
     "gulp-util": "^3.0.7",
+    "mocha": "^3.1.2",
     "tsify": "^2.0.2",
     "typescript": "^2.0.3",
     "vinyl-source-stream": "^1.1.0",

@@ -1,6 +1,8 @@
 {
     "files": [
+        "src/expert/main.ts",
         "src/expert/character.ts",
+        "src/expert/converter.ts",
         "src/dod.ts"
     ],
     "compilerOptions": {

@@ -36,6 +36,6 @@ gulp.task('clean-scripts', function () {
 });
 
 gulp.task("package", ["clean-scripts"], compile);
-gulp.task("default", ["compile"], bundle);
+gulp.task("default", ["clean-scripts"], bundle);
 watchedBrowserify.on("update", bundle);
 watchedBrowserify.on("log", gutil.log);
