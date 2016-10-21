@@ -4,7 +4,7 @@
   "description": "Drakar och Demoner - Assisterande scripts",
   "main": "./dist/dod.js",
   "private": true,
-  "repository": "",
+  "repository": "https://github.com/ollejacobsen/dod-assistant",
   "directories": {
     "test": "test"
   },
