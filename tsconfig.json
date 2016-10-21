@@ -1,0 +1,11 @@
+{
+    "files": [
+        "src/expert/character.ts",
+        "src/dod.ts"
+    ],
+    "compilerOptions": {
+        "noImplicitAny": true,
+        "target": "es5",
+        "removeComments": true
+    }
+}
