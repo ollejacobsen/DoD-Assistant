@@ -10,8 +10,6 @@
   },
   "scripts": {
     "test": "mocha",
-    "build": "gulp compile",
-    "package": "gulp default",
     "start": "gulp"
   },
   "keywords": [

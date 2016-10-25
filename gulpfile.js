@@ -8,13 +8,17 @@ var gutil = require("gulp-util");
 var ts = require("gulp-typescript");
 var tsProject = ts.createProject("tsconfig.json");
 
-var watchedBrowserify = watchify(browserify({
-    basedir: '.',
-    debug: true,
-    entries: ['src/dod.ts'],
-    cache: {},
-    packageCache: {}
-}).plugin(tsify));
+function browserifyBundle() {
+    return browserify({
+        basedir: '.',
+        debug: true,
+        entries: ['src/dod.ts'],
+        cache: {},
+        packageCache: {}
+    });
+} ;
+
+var watchedBrowserify = watchify(browserifyBundle().plugin(tsify));
 
 function compile() {
     return tsProject.src()
@@ -23,6 +27,15 @@ function compile() {
 };
 
 function bundle() {
+    compile();
+    return browserifyBundle()
+    .plugin(tsify)
+    .bundle()
+    .pipe(source('bundle.js'))
+    .pipe(gulp.dest("dist"));
+};
+
+function watchBundle() {
     compile();
     return watchedBrowserify
         .bundle()
@@ -35,7 +48,7 @@ gulp.task('clean-scripts', function () {
     .pipe(clean());
 });
 
-gulp.task("package", ["clean-scripts"], compile);
-gulp.task("default", ["clean-scripts"], bundle);
+gulp.task("package", ["clean-scripts"], bundle);
+gulp.task("default", ["clean-scripts"], watchBundle);
 watchedBrowserify.on("update", bundle);
 watchedBrowserify.on("log", gutil.log);
