@@ -4,7 +4,7 @@ var dod = require('../dist/dod.js');
 var Character = dod.Expert.Character;
 
 describe('Expert.Character', function() {
-  describe('#getMultipleForASkillsAndSpells()', function() {
+  describe('#getMultipleForASkillsAndSpells(A)', function() {
     it('should return 1 on range 1 - 10', function() {
         for(var i = 1; i <= 10; i++){
             let multiple = Character.getMultipleForASkillsAndSpells(i);
@@ -62,39 +62,38 @@ describe('Expert.Character', function() {
     });
 
   });
+
+  describe('#skillCost(type = A)', function() {
+      it('should return 50 when invest from 0 to 10 with a cost of 5', function() {
+          let cost = Character.skillCost(0, 10, 5, "A");
+          assert.equal(50, cost);
+      });
+
+      it('should return 63 when invest from 0 to 15 with a cost of 3', function() {
+          let cost = Character.skillCost(0, 15, 3, "A");
+          assert.equal(63, cost);
+      });
+  });
+
+   describe('#skillCost(type = B)', function() {
+      it('should return 2 when invest from 0 to 1 with a cost of 2', function() {
+          let cost = Character.skillCost(0, 1, 2, "B");
+          assert.equal(2, cost);
+      });
+
+      it('should return 8 when invest from 0 to 3 with a cost of 2', function() {
+          let cost = Character.skillCost(0, 3, 2, "B");
+          assert.equal(8, cost);
+      });
+
+      it('should return 48 when invest from 0 to 4 with a cost of 8', function() {
+          let cost = Character.skillCost(0, 4, 8, "B");
+          assert.equal(48, cost);
+      });
+
+      it('should return 70 when invest from 3 to 5 with a cost of 14', function() {
+          let cost = Character.skillCost(3, 5, 14, "B");
+          assert.equal(70, cost);
+      });
+  });
 });
-
-// test('A skill: Invest from 0 -> 10 with cost of 5', t => {
-//     var cost = Character.skillCost(0, 10, 5, "A");
-
-//     t.deepEqual(50, cost);
-// });
-
-// test('A skill: Invest from 0 -> 15 with cost of 3', t => {
-//     var cost = Character.skillCost(0, 15, 3, "A");
-
-//     t.deepEqual(63, cost);
-// });
-
-// test('B skill: Invest from 0 -> 1 with cost of 2 = 2', t => {
-//     var cost = Character.skillCost(0, 1, 2, "B");
-
-//     t.deepEqual(2, cost);
-// });
-// test('B skill: Invest from 0 -> 3 with cost of 2 = 8', t => {
-//     var cost = Character.skillCost(0, 3, 2, "B");
-
-//     t.deepEqual(8, cost);
-// });
-
-// test('B skill: Invest from 0 -> 4 with cost of 8 = 48', t => {
-//     var cost = Character.skillCost(0, 4, 8, "B");
-
-//     t.deepEqual(48, cost);
-// });
-
-// test('B skill: Invest from 3 -> 5 with cost of 14 = 70', t => {
-//     var cost = Character.skillCost(3, 5, 14, "B");
-
-//     t.deepEqual(70, cost);
-// });
