@@ -6,14 +6,27 @@ Koden är skriven i Typescript och genereras till ES5 (Javascript) genom ett byg
 
 ## Drakar och Demoner : Expert
 
-### Expert.calculateSkillCost
+### Expert.Character.calculateSkillCost
 
 ```
-    Expert.calculateSkillCost(currentValue, wantedValue, cost, type = "A")
+    Expert.Character.calculateSkillCost(currentValue, wantedValue, cost, type = "A")
 ```
 
 I Drakar & Demoner Expert blev det lite snurrigt med vad det kostar att köpa en viss FV i en viss färdighet.
 Den här metoden räknar ut kostanden och baseras på de rättningar som *Äventyrsspel* senare gav ut i *Sinkadus*.
+
+### Expert.Converter.basicT100ValueToT20
+```
+    Expert.Converter.basicT100ValueToT20(t100)
+```
+Räknar helt enkelt om från ett T100 resultat till ett T20.
+
+### Expert.Converter.toGroupValue
+```
+    Expert.Converter.toGroupValue(value)
+```
+Räknar om ett värde till ett gruppvärde. Använder "Grupptabellen" i Expert reglerna (lagt till grupp 7 som saknades). 
+Går från värde 0-300 / 0-33. 
 
 # Koden
 I `dist` mappen hittar ni filerna som kompileras. Varje fil för sig och även en `bundle.js` som innehåller allt-i-ett.  
