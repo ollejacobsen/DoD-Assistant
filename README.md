@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ollejacobsen/DoD-Assistant.svg?branch=master)](https://travis-ci.org/ollejacobsen/DoD-Assistant)
+
 # Drakar och Demoner
 *"Drakar och Demoner" is a Swedish version of the classic role-playing game Dungeons & Dragons.*
 
